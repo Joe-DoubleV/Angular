@@ -1,0 +1,84 @@
+<h1 id='blue'>
+  image works!
+</h1>
+<h1>绑定数据</h1>
+<div class='title'>
+  This is a {{title}} !  
+</div>
+<div class='userInfo'>
+  name:{{userInfo.name}}
+  <br>
+  age:{{userInfo.age}}
+</div>
+<br>
+<br>
+
+<h1>绑定属性</h1>
+    <div [title]='userInfo.name'>
+      {{content}}
+    </div>
+    <div [innerHtml] = 'content'></div>
+<br>
+<br>
+<h1>循环</h1>
+<ul class="list">
+  <li *ngFor="let item of userlist,let i = index">
+    {{i}}---{{item.name}}---{{item.age}}
+    <ul>
+      <li *ngFor="let array of item.ar">
+        {{array}}
+      </li>
+    </ul>
+  </li>
+</ul>
+<img src="assets/images/01.jpg"/>
+<img [src] = "imageUrl"/>
+<br>
+
+<h1>if AND switch</h1>
+<ol class="list">
+  <li *ngFor="let item of list,let i = index">
+    <span *ngIf="i==1" id="red">{{item}}</span>
+    <span *ngIf="i!=1" id="blue">{{item}}</span>
+  </li> 
+</ol>
+<ul class = list>
+  <li *ngFor="let s of switchList">
+    <div [ngSwitch]="s">
+      <div *ngSwitchCase=0>output0</div>
+      <div *ngSwitchCase=1>output1</div>
+      <div *ngSwitchCase=2>output2</div>
+      <div *ngSwitchDefault>output</div>
+    </div>
+  </li>
+</ul>
+<br>
+<h1>ngclass</h1>
+<div [ngClass]="{'title':flag}">
+  ngclass
+</div>
+<div [ngClass]="{'list': true}">
+  <p>org</p>
+</div>
+
+<h1>ngstyle</h1>
+<div [ngStyle]="{'background-color':'red'}">
+  ngstyle
+</div>
+<br>
+<h1>管道</h1>
+<div>
+  <p>{{today | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+</div>
+
+<h1>事件</h1>
+<button (click)='run()'>run</button>
+<button (click)='getData()'>flag</button>
+<button (click)='runEvent($event)'>flag</button>
+<br>
+<input type="text" (keydown)="keyDown($event)"/>
+<br>
+<h1>双向数据绑定MVVM--表单专属</h1>
+    <input type='text' [(ngModel)]="keywords" />
+    {{keywords}}
+<br>

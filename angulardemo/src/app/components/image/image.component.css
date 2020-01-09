@@ -1,0 +1,28 @@
+/*class*/
+.title {
+    font-size: 40px;    
+    color: rgb(252, 7, 7);
+}
+.userInfo {
+    font-size: 40px;
+    color: indigo;
+}
+/*id*/
+#blue{
+    color: blue;
+}
+#red{
+    color: red;
+}
+/*attribute*/
+p{
+    font-size: 30px;
+    color: coral;
+}
+.list {
+    font-size: 35px;
+    color: green;
+}
+img{
+    max-width: 500px;
+}
