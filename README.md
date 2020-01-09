@@ -137,6 +137,7 @@ ngModule用法`[(ngModel)]="binding"`
 ``` shell
 ng g service services/storage
 ```
+
 **添加服务需要导入2次
 - 根模块app.modules.ts
 ```TypeScript
