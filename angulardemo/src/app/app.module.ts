@@ -7,13 +7,15 @@ import { NewsComponent } from './components/news/news.component';
 import { FormComponent } from './components/form/form.component';
 
 import { StorageService } from './services/storage.service';
-import { ImageComponent } from './components/image/image.component'
+import { ImageComponent } from './components/image/image.component';
+import { HeaderComponent } from './components/header/header.component'
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
     FormComponent,
-    ImageComponent
+    ImageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

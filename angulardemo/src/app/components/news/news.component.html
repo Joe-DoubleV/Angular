@@ -1,3 +1,17 @@
-<p>
-  news works!
-</p>
+<app-header #header></app-header>
+
+
+<h1>Dom演示</h1>
+<h2>原生js</h2>
+    <div id='box'>
+      this is a box
+    </div>
+    <div id='boxs' *ngIf="flag">
+      this is a boxs
+    </div>
+
+    <button (click)="changeFlag()" >change</button>
+
+    <div #mybox>
+      this is a dom node
+    </div>

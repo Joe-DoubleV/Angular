@@ -138,7 +138,7 @@ ngModule用法`[(ngModel)]="binding"`
 ng g service services/storage
 ```
 
-**添加服务需要导入2次
+**添加服务需要导入2次**
 - 根模块app.modules.ts
 ```TypeScript
 import { StorageService } from './services/storage.service';
@@ -157,3 +157,46 @@ import { StorageService } from './services/storage.service';
 ```TypeScript
 import { StorageService } from '../../services/storage.service'
 ```
+## ViewChild
+#### viewChild获取Dom节点
+**1. 在模板中命名dom**
+```HTML
+    <div #mybox>
+      this is a dom node
+    </div>
+```
+mybox是为这个div的"代号"
+**2. 在业务逻辑中引入ViewChild**
+
+    import { Component, OnInit ,ViewChild } from '@angular/core';
+**3. 在类中实现**
+
+    @ViewChild('mybox') thisboxs:any;
+**4. ngAfterViewInit()生命周期函数中获取/操作dom**
+```TypeScript
+ngAfterViewInit() {    
+    /*建议在这里 操作dom 这时dom已经加载完毕*/    
+    console.log(this.thisboxs);
+    this.thisboxs.nativeElement.style.width='300px';    
+    this.thisboxs.nativeElement.style.height='100px';    
+    this.thisboxs.nativeElement.style.background='red';
+    console.log(this.thisboxs.nativeElement.innerText);
+  }
+```
+#### 父子组件通过viewChild调用子组件的方法
+**1. 在模板中命名**
+
+    <app-header #header></app-header>
+header是子组件
+
+**2. 在业务逻辑中引入ViewChild**
+
+    import { Component, OnInit ,ViewChild } from '@angular/core';
+**3. 在类中获取**
+
+    //获取组件
+    @ViewChild('header') child_Header:any;
+**4. 使用方法和属性**
+
+    this.child_Header.run();
+    alert(this.child_Header.info);
