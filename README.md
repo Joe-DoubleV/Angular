@@ -28,7 +28,7 @@ ng serve --open
 ``` shell
 ng g component components/news
 ```
-####绑定数据
+#### 绑定数据
 html页面读取 .ts 文件中title的值`public title:any = "ImageComponent"`
 ```html
 <h1>绑定数据</h1>
@@ -36,7 +36,7 @@ html页面读取 .ts 文件中title的值`public title:any = "ImageComponent"`
   This is a {{title}} !  
 </div>
 ```
-####绑定属性
+#### 绑定属性
 html页面中div 的 title属性 的值由 .ts文件中userInfo.name确定
 ```TypeScript
   public userInfo:object = {
@@ -52,7 +52,7 @@ html页面中div 的 title属性 的值由 .ts文件中userInfo.name确定
     <div [innerHtml] = 'content'></div>
 <br>
 ```
-####循环
+#### 循环
 ```TypeScript
   public userlist:any[] = [
     {
