@@ -1,0 +1,63 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul,ol{
+    list-style-type: none;
+}
+
+h2{
+    text-align: center;
+}
+.personlist{
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 10px solid #eee;
+    
+}
+.personlist li{
+    height: 50px;
+    line-height:50px;
+    
+}
+.form_input{
+    width: 300px;
+    height: 32px;
+}
+.personlistbutton{
+    width: 100px;
+    height: 30px;
+    float: inline-start;
+    margin-top: 40px;
+    
+}
+textarea{
+    position:relative;
+    left: 45px;
+    width: 300px;
+    height: 80px;
+}
+.toDoList{
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 10px solid #eee;
+    font-size: 25px;
+}
+
+.keyword{
+    width: 260px;
+    height: 32px;
+}
+.toDoList button{
+    width: 60px;
+    height: 32px;
+    float: inline-start;
+    margin-top: 10px;
+}
+.toDoList hr{
+    margin-top: 10px;
+}
+

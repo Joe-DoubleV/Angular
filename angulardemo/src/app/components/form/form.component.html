@@ -1,0 +1,48 @@
+<h2>人员登记</h2>
+<div class='personlist'>  
+    <ul>
+      <li>姓 名:<input type="text" [(ngModel)]="peopleInfo.userName" class="form_input"/></li>
+      <li>性 别：
+        <input type="radio" value='1' name="sex" id='sex1' [(ngModel)]="peopleInfo.sex" /><label for="sex1">男</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" value='2' name="sex" id='sex2' [(ngModel)]="peopleInfo.sex" /><label for="sex2">女</label>
+      </li>
+      <li>城 市：
+        <select name="city" value="city" [(ngModel)]="peopleInfo.city">
+            <option [value]="item" *ngFor="let item of cityList">{{item}}</option>
+        </select>
+      </li>
+      <li>语 言：
+          <span *ngFor="let item of peopleInfo.lang; let key=index" >
+              <input type="checkbox" [id]="'check'+key" [(ngModel)]="item.flag"/><label [for]="'check'+key">{{item.langType}}</label> 
+              &nbsp; &nbsp;
+          </span>
+      </li>
+      <p>备 注:</p>
+      <li>
+          <textarea name="mark" id="mark" cols="30" rows="5" [(ngModel)]="peopleInfo.mark"></textarea>
+      </li>
+    </ul>
+  
+    <button class="personlistbutton" (click)="doSubmit()">获取表单</button>
+</div>
+{{peopleInfo|json}}
+
+<div class="toDoList">
+  <input type="text" [(ngModel)]="keyWord" class="keyword" (keyup)='doAdd($event)' >&nbsp;&nbsp; <!-- <button (click)='doSearch()'>搜索</button> -->
+  <br>
+  <hr>
+  <ul>
+    <li>doingList:</li>
+    <li *ngFor="let item of historyList;let idx=index" [hidden]='item.status==1'>
+      <input type="checkbox" [(ngModel)]="item.status" (change)='changeStatus()'/>{{item.name}} ----<button (click)='deleteHistory(idx)'>X</button>
+    </li>
+    <hr>
+    <li>doneList:</li>
+    <li *ngFor="let item of historyList;let idx=index" [hidden]='item.status==0'>
+      <input type="checkbox" [(ngModel)]="item.status" (change)='changeStatus()'/>{{item.name}} ----<button (click)='deleteHistory(idx)'>X</button>
+    </li>
+  </ul>
+
+
+</div>
