@@ -12,9 +12,9 @@
     `cnpm install -g @angular/cli`
     
 ## Angular 创建项目
-ng new project-name
-cd project-name
-ng serve --open
+- ng new project-name
+- cd project-name
+- ng serve --open
 ``` shell
 ng new angulardemo
 cd angulardemo
