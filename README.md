@@ -158,7 +158,7 @@ import { StorageService } from './services/storage.service';
 import { StorageService } from '../../services/storage.service'
 ```
 ## ViewChild
-#### viewChild获取Dom节点
+### viewChild获取Dom节点
 **1. 在模板中命名dom**
 ```HTML
     <div #mybox>
@@ -183,8 +183,8 @@ ngAfterViewInit() {
     console.log(this.thisboxs.nativeElement.innerText);
   }
 ```
-#### 父子组件通过viewChild调用子组件的方法
-##### 这里是父子组件 主动 调用子组件的方法
+### 父子组件通过viewChild调用子组件的方法
+#### 这里是父子组件 主动 调用子组件的方法
 **1. 在模板中命名**
 
     <app-header #header></app-header>
@@ -202,7 +202,7 @@ header是子组件
     this.child_Header.run();
     alert(this.child_Header.info);
 ## 组件传值
-#### 父组件传给子组件
+### 父组件传给子组件
 **1. 父组件引入子组件，并传属性**
 
 `<app-header [name_child]='name_parent'></app-header>`
@@ -234,8 +234,8 @@ header是子组件
         alert(this.home.title);
         this.home.start();
     }
-#### 子组件通过@Qutput触发父组件方法
-##### 这里是父子组件 被动 调用子组件的方法
+### 子组件通过@Qutput触发父组件方法
+#### 这里是父子组件 被动 调用子组件的方法
 **1. 在子组件导入Output，EventEmitter**
 
 `import { Component, OnInit, Output, EventEmitter } from '@angular/core';`
@@ -245,6 +245,7 @@ header是子组件
 
     //暴露自定义事件
     @Output() outer = new EventEmitter<any>();
+    
 **3. 在子组件里面需要弹射的函数里面弹射变量**
 
 `this.name.emit(any)`
