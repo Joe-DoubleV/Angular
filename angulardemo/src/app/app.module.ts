@@ -7,21 +7,29 @@ import { NewsComponent } from './components/news/news.component';
 import { FormComponent } from './components/form/form.component';
 
 import { StorageService } from './services/storage.service';
+import { CommtempService } from './services/commtemp.service';
 import { ImageComponent } from './components/image/image.component';
-import { HeaderComponent } from './components/header/header.component'
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component'
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
     FormComponent,
     ImageComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [StorageService,],
+  providers: [
+    StorageService,
+    CommtempService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

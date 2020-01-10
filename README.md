@@ -184,19 +184,86 @@ ngAfterViewInit() {
   }
 ```
 #### 父子组件通过viewChild调用子组件的方法
+##### 这里是父子组件 主动 调用子组件的方法
 **1. 在模板中命名**
 
     <app-header #header></app-header>
 header是子组件
 
-**2. 在业务逻辑中引入ViewChild**
+**2. 在父组件中引入ViewChild**
 
     import { Component, OnInit ,ViewChild } from '@angular/core';
-**3. 在类中获取**
+**3. 在父组件类中获取**
 
     //获取组件
     @ViewChild('header') child_Header:any;
-**4. 使用方法和属性**
+**4. 父组件中使用方法和属性**
 
     this.child_Header.run();
     alert(this.child_Header.info);
+## 组件传值
+#### 父组件传给子组件
+**1. 父组件引入子组件，并传属性**
+`<app-header [name_child]='name_parent'></app-header>`
+
+    <app-header [title_header]='title' [func_header]='start' [home]='this'></app-header>
+[home]='this' 传给子组件接收父组件本身
+
+**2. 子组件逻辑中引入Input**
+
+    import { Component, OnInit ,Input } from '@angular/core';
+**3. 在子组件类中获取**
+`@Input() public [name_child]:any;`
+
+      //子组件中接收父组件
+    @Input() public title_header:string;
+    @Input() public func_header(){};
+    @Input() public home:any;
+**4. 子组件使用父组件方法和属性**
+`<h1>这是一个{{name_child}}页面</h1>`
+`alert(this.child_Header.info);`
+
+    public start(){
+    //调用父组件方法
+        this.func_header();
+    }
+    public all() {
+        alert(this.home.title);
+        this.home.start();
+    }
+#### 子组件通过@Qutput触发父组件方法
+##### 这里是父子组件 被动 调用子组件的方法
+**1. 在子组件导入Output，EventEmitter**
+`import { Component, OnInit, Output, EventEmitter } from '@angular/core';`
+**2. 在子组件里面定义并暴露出自定义事件**
+`@Output() outer_name = new EventEmitter<any>();
+
+    //暴露自定义事件
+    @Output() outer = new EventEmitter<any>();
+**3. 在子组件里面需要弹射的函数里面弹射变量**
+`this.name.emit(any)`
+
+    //changes()是普通函数
+    public changes() {
+        console.log("子组件changes()");
+        this.outer.emit(this.inputs)
+    }
+**4. 在父组件里面通过$event接收变量**
+`<app-footer (outer_name)='func_name($event)'></app-footer>`
+`func_name(e){}`
+
+    <app-footer (outer)='footerOut($event)'></app-footer><!-- HTML -->
+
+    //TypeScript
+    public footerOut(e) {
+        console.log("this is footerOut()");
+        console.log(e);
+        alert(e);
+    }
+    
+
+
+
+
+
+

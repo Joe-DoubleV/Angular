@@ -1,1 +1,10 @@
 <h1>我是一个Header组件</h1>
+<h1>这是一个{{title_header}}页面</h1>
+<button (click)='start()' > 调用父组件方法  </button>
+<button (click)='all()' > 调用父组件  </button>
+<br>
+<hr>
+<h1>这是一个{{title}}页面</h1>
+<input [(ngModel)]="inputs" />
+<button (click)='setT()' > set  </button>
+<button (click)='getT()' > get  </button>
