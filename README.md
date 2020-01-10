@@ -204,6 +204,7 @@ header是子组件
 ## 组件传值
 #### 父组件传给子组件
 **1. 父组件引入子组件，并传属性**
+
 `<app-header [name_child]='name_parent'></app-header>`
 
     <app-header [title_header]='title' [func_header]='start' [home]='this'></app-header>
@@ -213,6 +214,7 @@ header是子组件
 
     import { Component, OnInit ,Input } from '@angular/core';
 **3. 在子组件类中获取**
+
 `@Input() public [name_child]:any;`
 
       //子组件中接收父组件
@@ -220,6 +222,7 @@ header是子组件
     @Input() public func_header(){};
     @Input() public home:any;
 **4. 子组件使用父组件方法和属性**
+
 `<h1>这是一个{{name_child}}页面</h1>`
 `alert(this.child_Header.info);`
 
@@ -234,13 +237,16 @@ header是子组件
 #### 子组件通过@Qutput触发父组件方法
 ##### 这里是父子组件 被动 调用子组件的方法
 **1. 在子组件导入Output，EventEmitter**
+
 `import { Component, OnInit, Output, EventEmitter } from '@angular/core';`
 **2. 在子组件里面定义并暴露出自定义事件**
-`@Output() outer_name = new EventEmitter<any>();
+
+`@Output() outer_name = new EventEmitter<any>();`
 
     //暴露自定义事件
     @Output() outer = new EventEmitter<any>();
 **3. 在子组件里面需要弹射的函数里面弹射变量**
+
 `this.name.emit(any)`
 
     //changes()是普通函数
@@ -249,6 +255,7 @@ header是子组件
         this.outer.emit(this.inputs)
     }
 **4. 在父组件里面通过$event接收变量**
+
 `<app-footer (outer_name)='func_name($event)'></app-footer>`
 `func_name(e){}`
 
