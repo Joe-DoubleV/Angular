@@ -239,6 +239,7 @@ header是子组件
 **1. 在子组件导入Output，EventEmitter**
 
 `import { Component, OnInit, Output, EventEmitter } from '@angular/core';`
+
 **2. 在子组件里面定义并暴露出自定义事件**
 
 `@Output() outer_name = new EventEmitter<any>();`
