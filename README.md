@@ -274,8 +274,55 @@ header是子组件
 ### 子组件footer通过@Qutput触发父组件方法
 ### 父组件通过@Input()传给子组件header
 
+## 路由搭建
+根据版本不同，angular/cli 创建应用的语句不同
+- `ng new angulardemo --routing --skip-install`
+创建默认路由的语句
+
+如果之前创建的应用没有路由，可以通过
+1. 将 app.module.ts 暂时改名为 app.module.ts.bak
+2. `ng g m App --flat --routing`
+3. 删除新建的 app.module.ts，并将app.module.ts.bak 恢复为app.module.ts 并在 imports 加上刚刚建立的 AppRoutingModule
+4. 修改 AppRoutingModule，将forChild() 改成 forRoot()
+
+### 实现
+1. app.module.ts 导入 AppRoutingModule
+2. app-routing.module.ts 中导入组件，并在routes中配置路径
+```TypeScript
+import { NewsComponent } from './components/news/news.component';
+import { FormComponent } from './components/form/form.component';
+import { ImageComponent } from './components/image/image.component';
+import { HomeComponent } from './components/home/home.component'
+
+const routes: Routes = [
+    {
+      path:'home',component:HomeComponent
+    },
+    {
+      path:'news',component:NewsComponent
+    },
+    {
+      path:'image',component:ImageComponent
+    },
+    {
+      path:'form',component:FormComponent
+    },
+    //默认路径为 home
+    { path: '**', redirectTo:'home' }
 
 
+];
+```
+3. 在app.component.html中加入`<router-outlet></router-outlet>`和链接,注意和routes中对应
+```HTML
+<h1>
+  <a [routerLink]="['/home']" routerLinkActive="router-link-active" >HOME</a>
+  <a [routerLink]="['/news']" routerLinkActive="router-link-active" >NEWS</a>
+  <a [routerLink]="['/image']" routerLinkActive="router-link-active">IMAGE</a>
+  <a [routerLink]="['/form']" routerLinkActive="router-link-active" >FORM</a>
+</h1>
 
+<router-outlet></router-outlet>
+```
 
 

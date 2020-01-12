@@ -54,8 +54,8 @@ export class NewsComponent implements OnInit {
     console.log(this.thisboxs.nativeElement.innerText);
 
     //调用子组件里的方法
-    this.child_Header.run();
-    alert(this.child_Header.info);
+    // this.child_Header.run();
+    // alert(this.child_Header.info);
 
   }
   ngOnChanges(){
