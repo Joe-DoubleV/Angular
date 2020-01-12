@@ -41,6 +41,9 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
   }
+  ngOnChanges(){
+    console.log("header===ngOnChanges()");
+  }
   ngDoCheck(){console.log("header1==ngDoCheck()");}
   ngAfterContentInit(){console.log("header2==ngAfterContentInit()");}
   ngAfterContentChecked(){console.log("header3==ngAfterContentChecked()");}

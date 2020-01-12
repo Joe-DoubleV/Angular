@@ -202,7 +202,7 @@ header是子组件
     this.child_Header.run();
     alert(this.child_Header.info);
 ## 组件传值
-### 父组件传给子组件
+### 父组件通过@Input()传给子组件
 **1. 父组件引入子组件，并传属性**
 
 `<app-header [name_child]='name_parent'></app-header>`
@@ -270,6 +270,9 @@ header是子组件
         alert(e);
     }
     
+## 兄弟组件传值
+### 子组件footer通过@Qutput触发父组件方法
+### 父组件通过@Input()传给子组件header
 
 
 

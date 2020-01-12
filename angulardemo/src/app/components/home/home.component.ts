@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   public footerOut(e) {
     console.log("this is footerOut()");
     console.log(e);
-    alert(e);
+    // alert(e);
+    this.title=e;
   }
   ngOnInit() {
   }

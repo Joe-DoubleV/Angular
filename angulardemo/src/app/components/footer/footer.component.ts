@@ -11,12 +11,24 @@ export class FooterComponent implements OnInit {
   //暴露自定义事件
   @Output() outer = new EventEmitter<any>();
 
+  public inputs:string;
+
   /**
    * changes
    */
   public changes() {
     console.log("子组件changes()");
     this.outer.emit(this.inputs)
+  }
+  /**
+   * keyup
+   */
+  public keyUp(e) {
+    console.log(e.keyCode)
+    if(e.keyCode==13) {
+      this.outer.emit(this.inputs)
+    }
+    
   }
 
   constructor(public comm:CommtempService) { }
@@ -33,7 +45,7 @@ export class FooterComponent implements OnInit {
   ngAfterViewInit() {console.log("footer4==ngAfterViewInit()");}
   ngAfterViewChecked(){console.log("footer5==ngAfterViewChecked()");}
   ngOnDestroy(){console.log("footer6==ngOnDestroy()");}
-  public inputs:string;
+  
   /**
    * getT
    */
