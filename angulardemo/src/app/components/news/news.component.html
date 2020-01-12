@@ -15,3 +15,18 @@
     <div #mybox>
       this is a dom node
     </div>
+
+    <!-- 
+      动态路由
+     -->
+<br>
+<br>
+<br>
+<hr>
+     <a [routerLink]="['/newscontent']" routerLinkActive="router-link-active" >新闻详情</a>
+<ul>
+  <li *ngFor="let item of list ;let key=index;" >
+    <!-- <a href="#">{{key}}---{{item}}</a> -->
+    <a [routerLink]="['/newscontent']" [queryParams]={aid:key} >{{key+1}}---{{item}}</a>
+  </li>
+</ul>

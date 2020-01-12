@@ -12,7 +12,8 @@ import { CommtempService } from './services/commtemp.service';
 import { ImageComponent } from './components/image/image.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { NewscontentComponent } from './components/newscontent/newscontent.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { HomeComponent } from './components/home/home.component'
     ImageComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NewscontentComponent
   ],
   imports: [
     BrowserModule,

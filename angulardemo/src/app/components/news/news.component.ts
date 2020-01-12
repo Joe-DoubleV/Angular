@@ -25,8 +25,14 @@ export class NewsComponent implements OnInit {
     else
         oBoxs.style.color='red';
   }
-
+  public list:any[]=[];
   ngOnInit() {
+
+    for(var i=0;i<10;i++){
+      this.list.push('这是第'+(i+1)+'条数据')
+    }
+
+
     console.log("0===ngOnInit()");
     /*不建议在这里 操作dom */
     let oBox:any=document.getElementById('box');
@@ -68,5 +74,5 @@ export class NewsComponent implements OnInit {
   ngOnDestroy(){console.log("6==ngOnDestroy()");}
   //获取组件
   @ViewChild('header') child_Header:any;
-
+  
 }

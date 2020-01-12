@@ -7,7 +7,7 @@ import { ImageComponent } from './components/image/image.component';
 import { HomeComponent } from './components/home/home.component'
 // import { HeaderComponent } from './components/header/header.component';
 // import { FooterComponent } from './components/footer/footer.component';
-
+import { NewscontentComponent } from './components/newscontent/newscontent.component'
 
 const routes: Routes = [
     {
@@ -15,6 +15,9 @@ const routes: Routes = [
     },
     {
       path:'news',component:NewsComponent
+    },
+    {
+      path:'newscontent',component:NewscontentComponent
     },
     {
       path:'image',component:ImageComponent

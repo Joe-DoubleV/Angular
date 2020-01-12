@@ -324,5 +324,32 @@ const routes: Routes = [
 
 <router-outlet></router-outlet>
 ```
+## 动态路由
+### get传值
+1. 跳转
 
+```HTML
+//news
+<ul>
+  <li *ngFor="let item of list ;let key=index;" >
+    <!-- <a href="#">{{key}}---{{item}}</a> -->
+    <a [routerLink]="['/newscontent']" [queryParams]={aid:key} >{{key+1}}---{{item}}</a>
+  </li>
+</ul>
+```
+2. 接收
+```TypeScript
+//newscontent
+import { ActivatedRoute } from '@angular/router';
+
+constructor(public route:ActivatedRoute) { }
+
+ngOnInit() {
+    console.log(this.route.queryParams);
+    this.route.queryParams.subscribe((data)=>{
+      console.log(data);
+
+    })
+  }
+```
 
