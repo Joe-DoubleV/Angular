@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NewsComponent } from './components/news/news.component';
@@ -7,11 +7,29 @@ import { ImageComponent } from './components/image/image.component';
 import { HomeComponent } from './components/home/home.component'
 // import { HeaderComponent } from './components/header/header.component';
 // import { FooterComponent } from './components/footer/footer.component';
-import { NewscontentComponent } from './components/newscontent/newscontent.component'
-import { ImagecontentComponent } from './components/imagecontent/imagecontent.component'
+import { NewscontentComponent } from './components/newscontent/newscontent.component';
+import { ImagecontentComponent } from './components/imagecontent/imagecontent.component';
+import { ProductComponent } from './components/product/product.component';
+import { PlistComponent } from './components/product/plist/plist.component';
+import { PcateComponent } from './components/product/pcate/pcate.component';
+import { WelcomeComponent } from './components/home/welcome/welcome.component';
+import { SettingComponent } from './components/home/setting/setting.component';
 const routes: Routes = [
     {
-      path:'home',component:HomeComponent
+      path:'home',component:HomeComponent,
+      children:[
+        {path:'welcome',component:WelcomeComponent},
+        {path:'setting',component:SettingComponent},
+        { path: '**', redirectTo:'welcome' }
+      ]
+    },
+    {
+      path:'product',component:ProductComponent,
+      children:[
+        {path:'plist',component:PlistComponent},
+        {path:'pcate',component:PcateComponent},
+        { path: '**', redirectTo:'plist' }
+      ]
     },
     {
       path:'news',component:NewsComponent
@@ -35,7 +53,7 @@ const routes: Routes = [
       path:'imagecontent/:aid',component:ImagecontentComponent
     },
     //默认路径为 home
-    // { path: '**', redirectTo:'home' }
+    { path: '**', redirectTo:'home' }
 
 
 ];

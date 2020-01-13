@@ -14,7 +14,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NewscontentComponent } from './components/newscontent/newscontent.component';
-import { ImagecontentComponent } from './components/imagecontent/imagecontent.component'
+import { ImagecontentComponent } from './components/imagecontent/imagecontent.component';
+import { ProductComponent } from './components/product/product.component';
+import { PlistComponent } from './components/product/plist/plist.component';
+import { PcateComponent } from './components/product/pcate/pcate.component';
+import { WelcomeComponent } from './components/home/welcome/welcome.component';
+import { SettingComponent } from './components/home/setting/setting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +30,12 @@ import { ImagecontentComponent } from './components/imagecontent/imagecontent.co
     FooterComponent,
     HomeComponent,
     NewscontentComponent,
-    ImagecontentComponent
+    ImagecontentComponent,
+    ProductComponent,
+    PlistComponent,
+    PcateComponent,
+    WelcomeComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,

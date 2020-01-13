@@ -527,3 +527,60 @@ constructor(public route:ActivatedRoute) { }
     
     this.router.navigate(['/path/',key])
 ```
+
+## 嵌套路由.
+1. 导入、配置
+```TypeScript
+import { NewscontentComponent } from './components/newscontent/newscontent.component';
+import { ImagecontentComponent } from './components/imagecontent/imagecontent.component';
+import { ProductComponent } from './components/product/product.component';
+import { PlistComponent } from './components/product/plist/plist.component';
+import { PcateComponent } from './components/product/pcate/pcate.component';
+import { WelcomeComponent } from './components/home/welcome/welcome.component';
+import { SettingComponent } from './components/home/setting/setting.component';
+const routes: Routes = [
+    {
+      path:'home',component:HomeComponent,
+      children:[
+        {path:'welcome',component:WelcomeComponent},
+        {path:'setting',component:SettingComponent},
+        { path: '**', redirectTo:'welcome' }
+      ]
+    },
+    {
+      path:'product',component:ProductComponent,
+      children:[
+        {path:'plist',component:PlistComponent},
+        {path:'pcate',component:PcateComponent},
+        { path: '**', redirectTo:'plist' }
+      ]
+    },
+];
+```
+2. 实现
+```HTML
+<!-- 父组件 product -->
+  <div class='left'>
+      <a [routerLink]="['/product/plist']" routerLinkActive="router-link-active"  >plist</a>
+      <br>
+      <a [routerLink]="['/product/pcate']" routerLinkActive="router-link-active"  >pcate</a>
+  </div>
+
+  <div class='right'>
+      <h2>RIGHT</h2>
+      <router-outlet></router-outlet>
+  </div>
+  
+<!-- 父组件 home -->  
+    <div class='left'>
+        <a [routerLink]="['/home/welcome']" routerLinkActive="router-link-active"  >welcome</a>
+        <br>
+        <a [routerLink]="['/home/setting']" routerLinkActive="router-link-active"  >setting</a>
+    </div>
+
+    <div class='right'>
+        <h2>RIGHT</h2>
+        <router-outlet></router-outlet>
+    </div>
+  
+```

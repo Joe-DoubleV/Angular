@@ -1,7 +1,20 @@
-<app-header [title_header]='title' [func_header]='start' [home]='this'></app-header>
+<!-- <app-header [title_header]='title' [func_header]='start' [home]='this'></app-header>
 <br>
 <hr>
 <h1>HOME</h1>
 <br>
 <hr>
-<app-footer (outer)='footerOut($event)'></app-footer>
+<app-footer (outer)='footerOut($event)'></app-footer> -->
+<div class='content'>
+    <div class='left'>
+        <a [routerLink]="['/home/welcome']" routerLinkActive="router-link-active"  >welcome</a>
+        <br>
+        <a [routerLink]="['/home/setting']" routerLinkActive="router-link-active"  >setting</a>
+    </div>
+
+    <div class='right'>
+        <h2>RIGHT</h2>
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>
