@@ -477,9 +477,9 @@ constructor(public route:ActivatedRoute) { }
 ### get传值:
 - 路由配置
 
-    path:'path',component:
+`path:'path',component:`
 - 接收
-
+```
     import { ActivatedRoute } from '@angular/router';
 
     constructor(public route:ActivatedRoute) { }
@@ -487,13 +487,13 @@ constructor(public route:ActivatedRoute) { }
     this.route.queryParams.subscribe(data=>{
       console.log(data.aid);
     })
-    
+```    
 - 跳转
 
-    <a [routerLink]="['/path']" [queryParams]={aid:key} ></a>
+`<a [routerLink]="['/path']" [queryParams]={aid:key} ></a>`
     
 - 跳转(js)
-
+```
     import { Router } from '@angular/router'
     import { NavigationExtras } from '@angular/router'
     
@@ -501,13 +501,13 @@ constructor(public route:ActivatedRoute) { }
       queryParams:{'aid':key}
     };
     this.router.navigate(['/path/'],navigationExtras);
-    
+```
 ### 动态路由:
 - 路由配置
 
-    path:'path/:aid',component:
+`path:'path/:aid',component:`
 - 接收
-
+```
     import { ActivatedRoute } from '@angular/router';
 
     constructor(public route:ActivatedRoute) { }
@@ -516,14 +516,14 @@ constructor(public route:ActivatedRoute) { }
     this.route.params.subscribe((data)=>{
       console.log(data.aid);
     })
-    
+```
 - 跳转
 
-
-    <a [routerLink]="['/path/',key]" ></a>
+`<a [routerLink]="['/path/',key]" ></a>`
     
 - 跳转(js)
-
+```
     import { Router } from '@angular/router'
     
     this.router.navigate(['/path/',key])
+```
