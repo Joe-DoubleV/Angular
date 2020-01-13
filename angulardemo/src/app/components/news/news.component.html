@@ -22,6 +22,7 @@
 <br>
 <br>
 <br>
+<h2>get传值</h2>
 <hr>
      <a [routerLink]="['/newscontent']" routerLinkActive="router-link-active" >新闻详情</a>
 <ul>
@@ -30,3 +31,17 @@
     <a [routerLink]="['/newscontent']" [queryParams]={aid:key} >{{key+1}}---{{item}}</a>
   </li>
 </ul>
+<hr>
+<br>
+
+<h2>动态传值</h2>
+<br>
+<hr>
+<ul>
+  <li *ngFor="let item of list ;let key=index;" >
+    
+    <a [routerLink]="['/newscontent02/',key]" >{{key+1}}---{{item}}</a>
+  </li>
+</ul>
+<br>
+<hr>

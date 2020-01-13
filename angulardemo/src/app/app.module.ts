@@ -13,7 +13,8 @@ import { ImageComponent } from './components/image/image.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { NewscontentComponent } from './components/newscontent/newscontent.component'
+import { NewscontentComponent } from './components/newscontent/newscontent.component';
+import { ImagecontentComponent } from './components/imagecontent/imagecontent.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { NewscontentComponent } from './components/newscontent/newscontent.compo
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    NewscontentComponent
+    NewscontentComponent,
+    ImagecontentComponent
   ],
   imports: [
     BrowserModule,

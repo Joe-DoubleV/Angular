@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UpperCasePipe } from '@angular/common';
-
+import { Router } from '@angular/router'
+import { NavigationExtras } from '@angular/router'
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
@@ -46,7 +46,7 @@ export class ImageComponent implements OnInit {
 
   public keywords:any;
 
-  constructor() { 
+  constructor( public router:Router ) { 
     console.log(this.today)
   }
 
@@ -69,6 +69,26 @@ export class ImageComponent implements OnInit {
     console.log(e.target.value)
   }
   ngOnInit() {
+  }
+
+  /**
+   * getImagecontent
+   * Js---动态路由、传值
+   */
+  public getImagecontent() {
+    //适合普通路由、动态路由
+    this.router.navigate(['/imagecontent/','JS--跳转'])
+  }
+    /**
+   * goHome
+   * Js---get 传值
+   */
+  public goHome(){
+    console.log('gohome()')
+    let navigationExtras:NavigationExtras={
+      queryParams:{'aid':"JS--跳转"}
+    };
+    this.router.navigate(['/imagecontent/'],navigationExtras);
   }
 
 }

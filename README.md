@@ -329,7 +329,7 @@ const routes: Routes = [
 1. 跳转
 
 ```HTML
-//news
+<!-- news  -->
 <ul>
   <li *ngFor="let item of list ;let key=index;" >
     <!-- <a href="#">{{key}}---{{item}}</a> -->
@@ -338,6 +338,7 @@ const routes: Routes = [
 </ul>
 ```
 2. 接收
+
 ```TypeScript
 //newscontent
 import { ActivatedRoute } from '@angular/router';
@@ -352,4 +353,177 @@ ngOnInit() {
     })
   }
 ```
+### 动态路由
+1. 路由配置 有区别
+```TypeScript
+//app-routing.module.ts
+    {
+      path:'newscontent02/:aid',component:NewscontentComponent
+    },
+```
+2. 跳转
+```HTML
+<h2>动态传值</h2>
+<br>
+<hr>
+<ul>
+  <li *ngFor="let item of list ;let key=index;" >
+    
+    <a [routerLink]="['/newscontent02/',key]" >{{key+1}}---{{item}}</a>
+  </li>
+</ul>
+```
+3. 接收
+```
+import { ActivatedRoute } from '@angular/router';
 
+constructor(public route:ActivatedRoute) { }
+
+    console.log('===='+'动态路由');
+    this.route.params.subscribe(data=>{
+      console.log(data.aid);
+    })
+```
+### js实现动态路由
+1. 路由配置 
+```TypeScript
+//app-routing.module.ts
+    {
+      path:'imagecontent/:aid',component:ImagecontentComponent
+    },
+```
+2. 导入
+```
+import { Router } from '@angular/router'
+constructor( public router:Router ) { 
+    console.log(this.today)
+  }
+```
+3. 跳转
+```HTML
+<h2>JS--动态传值</h2>
+<hr>
+<!-- <a [routerLink]="['/imagecontent/','1234']" >a链接跳转</a> -->
+<br>
+<button (click) ='getImagecontent()' >JS--跳转</button>
+<br>
+<hr>
+```
+```TypeScript
+  public getImagecontent() {
+    //适合普通路由、动态路由
+    this.router.navigate(['/imagecontent/','1223'])
+  }
+```
+4. 接收
+```
+import { ActivatedRoute } from '@angular/router';
+
+constructor(public route:ActivatedRoute) { }
+
+    console.log('===='+'动态路由');
+    this.route.params.subscribe(data=>{
+      console.log(data.aid);
+    })
+```
+
+### js实现get
+1. 路由配置 
+```TypeScript
+//app-routing.module.ts
+    {
+      path:'imagecontent',component:ImagecontentComponent
+    },
+```
+2. 导入
+```
+import { Router } from '@angular/router'
+import { NavigationExtras } from '@angular/router'
+
+constructor( public router:Router ) { 
+    console.log(this.today)
+  }
+```
+3. 跳转
+```HTML
+<h2>JS--get传值</h2>
+<hr>
+<br>
+<button (click) ='goHome()' >JS--跳转</button>
+<br>
+<hr>
+```
+```TypeScript
+public goHome(){
+    console.log('gohome()')
+    let navigationExtras:NavigationExtras={
+      queryParams:{'aid':1234}
+    };
+    this.router.navigate(['/imagecontent/'],navigationExtras);
+}
+```
+4. 接收
+```
+import { ActivatedRoute } from '@angular/router';
+
+constructor(public route:ActivatedRoute) { }
+
+    console.log(this.route.queryParams);
+    this.route.queryParams.subscribe((data)=>{
+      console.log(data);
+    })
+```
+## 路由小节
+### get传值:
+- 路由配置
+
+    path:'path',component:
+- 接收
+
+    import { ActivatedRoute } from '@angular/router';
+
+    constructor(public route:ActivatedRoute) { }
+    
+    this.route.queryParams.subscribe(data=>{
+      console.log(data.aid);
+    })
+    
+- 跳转
+
+    <a [routerLink]="['/path']" [queryParams]={aid:key} ></a>
+    
+- 跳转(js)
+
+    import { Router } from '@angular/router'
+    import { NavigationExtras } from '@angular/router'
+    
+    let navigationExtras:NavigationExtras={
+      queryParams:{'aid':key}
+    };
+    this.router.navigate(['/path/'],navigationExtras);
+    
+### 动态路由:
+- 路由配置
+
+    path:'path/:aid',component:
+- 接收
+
+    import { ActivatedRoute } from '@angular/router';
+
+    constructor(public route:ActivatedRoute) { }
+
+    console.log(this.route.params);
+    this.route.params.subscribe((data)=>{
+      console.log(data.aid);
+    })
+    
+- 跳转
+
+
+    <a [routerLink]="['/path/',key]" ></a>
+    
+- 跳转(js)
+
+    import { Router } from '@angular/router'
+    
+    this.router.navigate(['/path/',key])

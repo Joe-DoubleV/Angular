@@ -28,7 +28,7 @@ export class NewsComponent implements OnInit {
   public list:any[]=[];
   ngOnInit() {
 
-    for(var i=0;i<10;i++){
+    for(var i=0;i<3;i++){
       this.list.push('这是第'+(i+1)+'条数据')
     }
 

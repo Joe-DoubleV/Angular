@@ -8,7 +8,7 @@ import { HomeComponent } from './components/home/home.component'
 // import { HeaderComponent } from './components/header/header.component';
 // import { FooterComponent } from './components/footer/footer.component';
 import { NewscontentComponent } from './components/newscontent/newscontent.component'
-
+import { ImagecontentComponent } from './components/imagecontent/imagecontent.component'
 const routes: Routes = [
     {
       path:'home',component:HomeComponent
@@ -20,13 +20,22 @@ const routes: Routes = [
       path:'newscontent',component:NewscontentComponent
     },
     {
+      path:'newscontent02/:aid',component:NewscontentComponent
+    },
+    {
       path:'image',component:ImageComponent
     },
     {
       path:'form',component:FormComponent
     },
+    {
+      path:'imagecontent',component:ImagecontentComponent
+    },
+    {
+      path:'imagecontent/:aid',component:ImagecontentComponent
+    },
     //默认路径为 home
-    { path: '**', redirectTo:'home' }
+    // { path: '**', redirectTo:'home' }
 
 
 ];
