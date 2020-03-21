@@ -11,7 +11,7 @@ def remove():
             tempfile = os.path.join(tempPath,tempDir,'package.json')
             if (os.path.isfile(tempfile)):
                 print(tempfile)
-                shutil.copy(tempfile,tempPath)
+                # shutil.copy(tempfile,tempPath)
                 count += 1
     print(count)
 

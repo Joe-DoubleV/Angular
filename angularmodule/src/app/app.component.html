@@ -1,8 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- <app-user></app-user> -->
 
-<a  [routerLink]="['/product']" routerLinkActive="router-link-active" >PRODUCT</a>
-<a  [routerLink]="['/article']" routerLinkActive="router-link-active" >ARTICLT</a>
-<a [routerLink]="['/game']" routerLinkActive="router-link-active" >GAME</a>
-
+<a  [routerLink]="['/product']" routerLinkActive="router-link-active" >{{"product"|translate}}</a>
+<a  [routerLink]="['/article']" routerLinkActive="router-link-active" >{{"artical"|translate}}</a>
+<a [routerLink]="['/game']" routerLinkActive="router-link-active" >{{'game'|translate}}</a>
+<select [(ngModel)]="langage" (change)="langChanges($event)" >
+    <option vaule = "en-US" (click)="langChange()" >ENGLISH</option>
+    <option vaule = "cn-ZH" (click)="langChange()" >简体中文</option>
+</select>
+<button (click)="change()">Change</button>
 <router-outlet></router-outlet>
