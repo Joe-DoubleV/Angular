@@ -5,8 +5,8 @@
 <a  [routerLink]="['/article']" routerLinkActive="router-link-active" >{{"artical"|translate}}</a>
 <a [routerLink]="['/game']" routerLinkActive="router-link-active" >{{'game'|translate}}</a>
 <select [(ngModel)]="langage" (change)="langChanges($event)" >
-    <option vaule = "en-US" (click)="langChange()" >ENGLISH</option>
-    <option vaule = "cn-ZH" (click)="langChange()" >简体中文</option>
+    <option value = "en-US" >ENGLISH</option>
+    <option value = "zh-CN" >简体中文</option>
 </select>
 <button (click)="change()">Change</button>
 <router-outlet></router-outlet>

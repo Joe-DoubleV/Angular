@@ -21,26 +21,17 @@ export class AppComponent {
     // 记录当前设置的语言
     localStorage.setItem('currentLanguage', this.currentLanguage)
     console.log(this.langage)
+    this.langage = this.currentLanguage
   }
-  langList = ["中文","English"]
   langChinese = true 
-  langage = "en-US"
-  langChange(){
-      
-        console.log("lang")
-        console.log(this.langage)
-    //   console.log(event)
-    //   alert(this.langage)
-    //   if(this.langage=="English"){
-    //     this.translate.use('en-US')
-    //     localStorage.setItem('currentLanguage', "en-US")
-    //   } else{
+  langage = ""
 
-    //   }
-  }
   langChanges(event){
     console.log(event)
     console.log(this.langage)
+    this.currentLanguage = this.langage
+    this.translate.use(this.currentLanguage);
+    localStorage.setItem('currentLanguage', this.currentLanguage)
   }
   change(){
       this.langChinese = !this.langChinese
